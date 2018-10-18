@@ -1,0 +1,24 @@
+{
+  "name": "calculadoradeterminantes",
+  "version": "1.0.0",
+  "description": "proyecto calculadora de determinantes",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app",
+    "nodemon": "nodemon app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevelopersGTTest/Calculador-Determiantes.git"
+  },
+  "author": "Pablo JSanchez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevelopersGTTest/Calculador-Determiantes/issues"
+  },
+  "homepage": "https://github.com/DevelopersGTTest/Calculador-Determiantes#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
