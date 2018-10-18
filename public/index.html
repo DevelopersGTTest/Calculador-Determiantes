@@ -22,20 +22,17 @@
       </nav>
 
       <button click="alertt()" >Mariz 1</button>
-      <form class="form-signin">
-        <select class="custom-select" id="inputGroupSelect01">
-            <option onchange="location = this.value;"  selected>Slecciona Tu Matriz</option>
-            <option >1x1</option>
-            <option value="2">2x2</option>
-            <option value="3">3x3</option>
-            <option value="4">4x4</option>
-          </select>
       
+     <section onsubmit="calcularMatriz()" id="contenedor_matriz" >
+      <form class="form-signin">
+       <input id="filas"    class="form-control" type="number" placeholder="ingrese el # de filas">
+       <input id="columnas" class="form-control" type="number" placeholder="ingrese el # de columnas">
+       <button class="btn btn-lg btn-primary btn-block" type="submit" >Procesar</button>
       </form>
-
+    </section>  
     <!--MODAL FORM -->
     <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modalBase" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
