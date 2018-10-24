@@ -84,7 +84,7 @@ function resolvertz(){
     var f2_c2 = mat2x2.dos_a_dos
     
     let res = det_2x2(f1_c1, f1_c2, f2_c1, f2_c2)
-    console.log(res)
+    console.log(res) 
 }
 
 function det_2x2(a, b, c, d){
@@ -97,3 +97,5 @@ function det_2x2(a, b, c, d){
     let op = dat1 * dat4 - dat3 * dat2
     return op
 }
+
+//DETERMINANTE 3 ,4  ++ PRONTO
