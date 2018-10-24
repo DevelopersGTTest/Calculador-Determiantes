@@ -1,6 +1,13 @@
 var filas = document.getElementById("filas")
 var columas = document.getElementById("columnas")
 
+//Obteniendo valores de 2x2
+var uno_uno = document.getElementById("uno_uno")
+var uno_dos = document.getElementById("uno_dos")
+var dos_uno = document.getElementById("dos_uno")
+var dos_dos = document.getElementById("dos_dos")
+
+
 function calcularMatriz(){
     event.preventDefault()
     var f_c = {
@@ -21,7 +28,8 @@ function calcularMatriz(){
         console.log(resp);
         if(resp == 4){
             console.log('seleccionaste una matriz de 2x2')
-            $('#modal2x2').modal('show') 
+            $('#modal2x2').modal('show')
+            
         }
         if(resp == 6 ){
             console.log('Seleccionaste una matriz de 3x3')
@@ -60,4 +68,34 @@ function resolverValores(x, y){
     return resuelto;
 }
 
+function resolvertz(){
+    event.preventDefault()
+    var mat2x2 = {
+      uno_a_uno: uno_uno.value,
+      uno_a_dos: uno_dos.value,
+      dos_a_uno: dos_uno.value,
+      dos_a_dos: dos_dos.value 
+    }
+    console.log(mat2x2);
 
+    var f1_c1 = mat2x2.uno_a_uno
+    var f1_c2 = mat2x2.uno_a_dos
+    var f2_c1 = mat2x2.dos_a_uno
+    var f2_c2 = mat2x2.dos_a_dos
+    
+    let res = det_2x2(f1_c1, f1_c2, f2_c1, f2_c2)
+    console.log(res) 
+}
+
+function det_2x2(a, b, c, d){
+    
+    let dat1 = parseInt(a) //Fila 1, columna 1
+    let dat2 = parseInt(b) //Fila 1, columna 2
+    let dat3 = parseInt(c) //Fila 2, columna 1
+    let dat4 = parseInt(d) //Fila 2, columna 2
+
+    let op = dat1 * dat4 - dat3 * dat2
+    return op
+}
+
+//DETERMINANTE 3 ,4  ++ PRONTO

@@ -114,7 +114,8 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+
+        <div class="modal-body" onsubmit="resolvertz" >
             <table class="table table-bordered">
                 <thead>
                   <tr>
@@ -124,23 +125,24 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <form onsubmit="resolvertz(event)" >
                   <tr>
                     <th scope="row">1</th>
-                    <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
-                    <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                    <td><div id="celmatrix"><input id="uno_uno" type="number"  ></div></td>
+                    <td><div id="celmatrix"><input id="uno_dos" type="number" ></div></td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
-                    <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
-                    <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                    <td><div id="celmatrix"><input id="dos_uno" type="number"  ></div></td>
+                    <td><div id="celmatrix"><input id="dos_dos" type="number"  ></div></td>
                   </tr>
+                  <button class="btn btn-lg btn-primary btn-block" type="submit" >Procesar</button>
+                </section>
               </tbody>
+            </form>
               </table>
         </div>
-        <div class="modal-footer">
-            <button type="button"  class="btn btn-lg btn-primary btn-block" >Calcular</button>
-        </div>
-      </div>
+     </div>
     </div>
   </div>
   <!--FIN MODAL 2x2 -->

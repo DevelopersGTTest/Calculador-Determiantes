@@ -60,3 +60,9 @@ body {
   background-color: #6600FF;
   cursor:default;
 }
+
+input.colorsitos {
+  background-color: #6600FF;
+  cursor:default; 
+  display:block;
+}
