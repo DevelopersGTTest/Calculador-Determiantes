@@ -21,12 +21,15 @@ function calcularMatriz(){
         console.log(resp);
         if(resp == 4){
             console.log('seleccionaste una matriz de 2x2')
+            $('#modal2x2').modal('show') 
         }
         if(resp == 6 ){
             console.log('Seleccionaste una matriz de 3x3')
+            $('#modal3x3').modal('show') 
         }
         if(resp == 8){
             console.log('Seleccionaste una matriz de 4x4')
+            $('#modal4x4').modal('show')
         }
     }
 }
