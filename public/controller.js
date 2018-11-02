@@ -1,3 +1,5 @@
+//const swal = require('sweetalert2');
+
 var filas = document.getElementById("filas")
 var columas = document.getElementById("columnas")
 
@@ -7,10 +9,20 @@ var uno_dos = document.getElementById("uno_dos")
 var dos_uno = document.getElementById("dos_uno")
 var dos_dos = document.getElementById("dos_dos")
 
+//Obteniendo la matriz de 3x3
+var tres_uno_uno = document.getElementById("tres_uno_uno")
+var tes_uno_dos = document.getElementById("tes_uno_dos")
+var tes_uno_tres = document.getElementById("tes_uno_tres")
+var tres_dos_uno = document.getElementById("tres_dos_uno")
+var tres_dos_dos = document.getElementById("tres_dos_dos")
+var tres_dos_tres = document.getElementById("tres_dos_tres")
+var tres_tres_uno = document.getElementById("tres_tres_uno")
+var tres_tres_dos = document.getElementById("tres_tres_dos")
+var tres_tres_tres = document.getElementById("tres_tres_tres")
 
 function calcularMatriz(){
     event.preventDefault()
-    var f_c = {
+    var f_c = { 
         numero_filas: filas.value,
         numero_columas: columas.value
     }
@@ -84,6 +96,7 @@ function resolvertz(){
     var f2_c2 = mat2x2.dos_a_dos
     
     let res = det_2x2(f1_c1, f1_c2, f2_c1, f2_c2)
+    alert(`Tu Resultado es: ${res} `)
     console.log(res) 
 }
 
@@ -96,6 +109,66 @@ function det_2x2(a, b, c, d){
 
     let op = dat1 * dat4 - dat3 * dat2
     return op
+}
+
+function resolverzz(){
+    event.preventDefault()
+    var objmat = {
+        tres_uno_uno_1  : tres_uno_uno.value,
+        tes_uno_dos_2   : tes_uno_dos.value,
+        tes_uno_tres_3  : tes_uno_tres.value,
+        tres_dos_uno_4  : tres_dos_uno.value,
+        tres_dos_dos_5  : tres_dos_dos.value,
+        tres_dos_tres_6 : tres_dos_tres.value,
+        tres_tres_uno_7 : tres_tres_uno.value,
+        tres_tres_dos_8 : tres_tres_dos.value,
+        tres_tres_tres_9 : tres_tres_tres.value              
+    }
+    console.log(objmat)
+
+    var tr_f1_c1 = objmat.tres_uno_uno_1
+    var tr_f1_c2 = objmat.tes_uno_dos_2
+    var tr_f1_c3 = objmat.tes_uno_tres_3
+    var tr_f2_c1 = objmat.tres_dos_uno_4
+    var tr_f2_c2 = objmat.tres_dos_dos_5
+    var tr_f2_c3 = objmat.tres_dos_tres_6
+    var tr_f3_c1 = objmat.tres_tres_uno_7
+    var tr_f3_c2 = objmat.tres_tres_dos_8
+    var tr_f3_c3 = objmat.tres_tres_tres_9
+
+    let tot = det_determinante(tr_f1_c1, tr_f1_c2, tr_f1_c3, tr_f2_c1, tr_f2_c2,tr_f2_c3 , tr_f3_c1, tr_f3_c2, tr_f3_c3 ) 
+     
+    alert(`Tu resultado es: ${tot}`)
+    /*swal({
+        title: `Tu resultado es: ${tot}`,
+        animation: false,
+        customClass: 'animated tada'
+    })*/
+}
+
+function det_determinante(q,w,e,r,t,y,u,i,o){
+    
+    let dat1 = parseInt(q)
+    let dat2 = parseInt(w)
+    let dat3 = parseInt(e)
+    let dat4 = parseInt(r)
+    let dat5 = parseInt(t)
+    let dat6 = parseInt(y)
+    let dat7 = parseInt(u)
+    let dat8 = parseInt(i)
+    let dat9 = parseInt(o)
+
+    let op1 = q * t * o
+    let op2 = r * i * e
+    let op3 = u * w * y
+    
+    let op4 = r * w * o
+    let op5 = q * i * y
+    let op6 = u * t * e
+
+    let res = ( op1 + op2 + op3 ) - ( op4 + op5 + op6 )
+
+    return res
 }
 
 //DETERMINANTE 3 ,4  ++ PRONTO
