@@ -1,16 +1,6 @@
-//const swal = require('sweetalert2');
+console.log('Bienvenido al controlador de funciones')
 
-//Controlando el estado de la sesion
-firebase.auth().onAuthStateChanged(function(user){
-    console.log(user)
-    if (user) {
-      console.log("Tienes una sesion activa");
-    }else{
-      //window.location.href = "home.php";
-      console.log("No se detecta ninguna sesion");
-      
-    }
-  });
+var btnLogOut = document.getElementById("btnLogOut")
 
 var filas = document.getElementById("filas")
 var columas = document.getElementById("columnas")
@@ -183,4 +173,7 @@ function det_determinante(q,w,e,r,t,y,u,i,o){
     return res
 }
 
-//DETERMINANTE 3 ,4  ++ PRONTO
+
+btnLogOut.addEventListener("click", function(){
+    confirm('Deseas Salir?',  window.location.href = "index.html" )
+})

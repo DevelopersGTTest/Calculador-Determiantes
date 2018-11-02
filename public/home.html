@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculaadora de Determinante</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="signin.css" rel="stylesheet">
+    
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand">Precalculo</a>
+        <form class="form-inline">
+          <button type="button" id="btnLogOut" class="btn btn-danger">Salir</button>
+        </form>
+      </nav>
+
+     
+      
+      <section onsubmit="calcularMatriz()" id="contenedor_matriz" >
+        <form class="form-signin">
+         <input id="filas"    class="form-control" type="number" placeholder="ingrese el # de filas">
+         <input id="columnas" class="form-control" type="number" placeholder="ingrese el # de columnas">
+         <button class="btn btn-lg btn-primary btn-block" type="submit" >Procesar</button>
+        </form>
+      </section>  
+      <!--MODAL FORM -->
+      <!-- Modal -->
+  <div class="modal fade" id="modalBase" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Ingresa tus valores</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Col 1</th>
+                      <th scope="col">Col 2</th>
+                      <th scope="col">Col 3</th>
+                      <th scope="col">Col 4</th>
+                      <th scope="col">Col 5</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+          <div class="modal-footer">
+              <button type="button"  class="btn btn-lg btn-primary btn-block" >Calcular</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- INICIO MODAL 2X2 -->
+    <div class="modal fade" id="modal2x2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Ingresa tus valores</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+  
+          <div class="modal-body" onsubmit="resolvertz" >
+              <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Col 1</th>
+                      <th scope="col">Col 2</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <form onsubmit="resolvertz(event)" >
+                    <tr>
+                      <th scope="row">1</th>
+                      <td><div id="celmatrix"><input id="uno_uno" type="number"  ></div></td>
+                      <td><div id="celmatrix"><input id="uno_dos" type="number" ></div></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td><div id="celmatrix"><input id="dos_uno" type="number"  ></div></td>
+                      <td><div id="celmatrix"><input id="dos_dos" type="number"  ></div></td>
+                    </tr>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" >Procesar</button>
+                  </section>
+                </tbody>
+              </form>
+                </table>
+          </div>
+       </div>
+      </div>
+    </div>
+    <!--FIN MODAL 2x2 -->
+    <!--INICIO MODAL 3X3 -->
+    <div class="modal fade" id="modal3x3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Ingresa tus valores</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Col 1</th>
+                      <th scope="col">Col 2</th>
+                      <th scope="col">Col 3</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <section onsubmit="resolverzz(event)">
+                    <form>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td><div id="celmatrix"><input id="tres_uno_uno" type="number"></div></td>
+                      <td><div id="celmatrix"><input id="tes_uno_dos" type="number"></div></td>
+                      <td><div id="celmatrix"><input id="tes_uno_tres" type="number"></div></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td><div id="celmatrix"><input id="tres_dos_uno" type="number"></div></td>
+                      <td><div id="celmatrix"><input id="tres_dos_dos" type="number"></div></td>
+                      <td><div id="celmatrix"><input id="tres_dos_tres" type="number"></div></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td><div id="celmatrix"><input id="tres_tres_uno" type="number"></div></td>
+                      <td><div id="celmatrix"><input id="tres_tres_dos" type="number"></div></td>
+                      <td><div id="celmatrix"><input id="tres_tres_tres" type="number"></div></td>
+                    </tr>
+                    <button type="submit"  class="btn btn-lg btn-primary btn-block" >Calcular</button>
+                </tbody>
+              </form>
+            </section>
+                </table>
+          </div>
+          <div class="modal-footer">
+             
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIN MODAL 3X3 -->
+    <!-- INICIO MODAL 4X4 -->
+    <div class="modal fade" id="modal4x4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Ingresa tus valores</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Col 1</th>
+                      <th scope="col">Col 2</th>
+                      <th scope="col">Col 3</th>
+                      <th scope="col">Col 4</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>  
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>  
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>  
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>
+                      <td><div id="celmatrix"><input id="celmatrix" type="text"></div></td>    
+                    </tr>
+                </tbody>
+                </table>
+          </div>
+          <div class="modal-footer">
+              <button type="button"  class="btn btn-lg btn-primary btn-block" >Calcular</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- FIN MODAL 4X4 -->
+    <script type="text/javascript" src="controller.js"></script>
+  </body>
+  </html>
