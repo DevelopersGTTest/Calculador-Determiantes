@@ -1,5 +1,17 @@
 //const swal = require('sweetalert2');
 
+//Controlando el estado de la sesion
+firebase.auth().onAuthStateChanged(function(user){
+    console.log(user)
+    if (user) {
+      console.log("Tienes una sesion activa");
+    }else{
+      //window.location.href = "home.php";
+      console.log("No se detecta ninguna sesion");
+      
+    }
+  });
+
 var filas = document.getElementById("filas")
 var columas = document.getElementById("columnas")
 
